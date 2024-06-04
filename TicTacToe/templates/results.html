@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Results!</title>
+
+        <style>
+
+            body{
+                background-color: rgb(2, 84, 87);
+                justify-content: center;
+            }
+            
+            p{
+                font-size: large;
+            }
+            .congo{
+                background-color: bisque;
+                margin-left: 35%;
+                margin-right: 35%;
+                border-radius: 5px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                visibility: hidden;
+                opacity: 1; 
+                justify-content: center;
+                display: flex;
+            }
+
+            .tie{
+                background-color: bisque;
+                margin-left: 35%;
+                margin-right: 35%;
+                border-radius: 5px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                visibility: hidden;
+                opacity: 1;
+                justify-content: center;
+            }
+
+            .submit-button{
+                background-color: green;
+                color: white;
+                display: inline;
+                padding: 10px 20px;
+                text-align: center;
+                font-size: 16px;
+                cursor: pointer;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 5px;
+                
+            }
+
+            .submit-button:hover{
+                background-color: white;
+                color: black;
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded',function(){
+                if(parseInt("{{winner}}") == 0){
+                    event = document.getElementById("tie");
+                    event.style.visibility = 'visible';
+                    event.style.opacity = '1';
+                }
+                else{
+                    event = document.getElementById("winner");
+                    event.style.visibility = 'visible';
+                    event.style.opacity = '1'
+                }
+            });
+
+            function playAgain(){
+                window.location.href = '/game';
+            }
+
+            function newgame(){
+                window.location.href ='/';
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div id = "winner" class="congo">
+            <p>Congratulations {{winner}} !<p><br><br>
+            <button class="submit-button"onclick="playAgain()">Play again</button>
+            <button class="submit-button" onclick="newgame()">New game</button>
+        </div>
+
+        <br><br>
+
+        <div id="tie" class="tie">
+            <p>Oops! It is a tie!</p><br><br>
+            <button class="submit-button" onclick="playAgain()">Play again</button>
+            <button class="submit-button" onclick="newgame()">New game</button>
+        </div>
+
+    </body>
+</html>

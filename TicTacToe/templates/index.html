@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home Page</title>
+
+        <link rel="stylesheet" href = "{{url_for('static',filename='css/index.css')}}">
+        <script src="{{url_for('static',filename='javascript/index.js')}}"></script>
+    </head>
+
+    <body>
+
+        <div id = "notificationBox" class="notification">
+            We provide a special type of tic-tac-toe. Please read the instructions and begin to play!
+            <br><br>
+            <button id="close-Notification"class="submit-button" onclick="closeNotification()">Play!</button>
+        </div>
+
+        <div id="formBox" class = "form">
+            <br>
+            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;">Welcome! Input the size of TicTacToe to begin to play!</h3>
+            <center>
+            <form  method="post" onsubmit="return begin()">
+                <input  id="size" name="size" class="inputText" placeholder="Enter a number" required><br><br>
+
+                Player 1 name: <input id="player1" name="player1name" type="text" class = "text" placeholder="player name" required>
+                Color: <input   id = "color1" name = "player1color" type="color"  class="color-box" ><br><br>
+
+                Player 2 name: <input id="player2" name="player2name" type="text" class = "text" placeholder="player name" required>
+                Color: <input  id = "color2" name = "player2color" type="color" class="color-box">
+                
+                <br><br>
+                <button type="submit" onclick="redirectToGamePage()" class="submit-button" id="simpleGame">Play!</button><br><br>
+                <button type="submit" onclick="redirecttoSpecialGamePage()" class="submit-button" id="specialGame">Play special tic-tac-toe!</button><br><br>
+                <input class="attribute" name="attribute" id="attribute" value="">
+            </center>
+            </form>
+        </div>
+
+    </body>
+</html> 
